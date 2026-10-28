@@ -73,8 +73,12 @@ export class UIManager {
 
     this.button.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
+    this._addActionItem('Edit Last Layout', 'edit-current.png', () => {
+      this._openInEditor(LayoutStorage.getLayoutPath(), 'last layout');
+    });
+
     this._addActionItem('Edit Default Layout', 'edit-default.png', () => {
-      this._openDefaultLayoutInEditor();
+      this._openInEditor(LayoutStorage.getDefaultLayoutPath(), 'default layout');
     });
 
     Main.panel.addToStatusArea('deja-vu', this.button);
@@ -101,14 +105,14 @@ export class UIManager {
     Main.notify('Déjà Vu', message);
   }
 
-  _openDefaultLayoutInEditor() {
+  _openInEditor(path, description) {
     try {
-      LayoutStorage.ensureDefaultExists();
-      const file = Gio.File.new_for_path(LayoutStorage.getDefaultLayoutPath());
+      LayoutStorage.ensureExists(path);
+      const file = Gio.File.new_for_path(path);
       Gio.AppInfo.launch_default_for_uri(file.get_uri(), null);
     } catch (e) {
-      console.error(`[DejaVu] Failed to open default layout for editing: ${String(e)}`);
-      this.notify('Failed to open default layout file.');
+      console.error(`[DejaVu] Failed to open ${description} for editing: ${String(e)}`);
+      this.notify(`Failed to open ${description} file.`);
     }
   }
 

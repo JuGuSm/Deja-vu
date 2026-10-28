@@ -53,13 +53,17 @@ export class LayoutStorage {
     return this.save(layout, DEFAULT_LAYOUT_FILE);
   }
 
-  // Used by "Edit Default Layout" so the file always exists before it's
-  // opened in the user's text editor.
-  static ensureDefaultExists() {
+  // Used by the "Edit ... Layout" menu items so the file always exists
+  // before it's opened in the user's text editor.
+  static ensureExists(path) {
     ensureConfigDir();
-    if (!GLib.file_test(DEFAULT_LAYOUT_FILE, GLib.FileTest.EXISTS)) {
-      GLib.file_set_contents(DEFAULT_LAYOUT_FILE, '[]');
+    if (!GLib.file_test(path, GLib.FileTest.EXISTS)) {
+      GLib.file_set_contents(path, '[]');
     }
+  }
+
+  static getLayoutPath() {
+    return LAYOUT_FILE;
   }
 
   static getDefaultLayoutPath() {
