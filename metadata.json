@@ -1,14 +1,15 @@
 {
   "uuid": "deja-vu@JuGuSm",
   "name": "Déjà Vu",
-  "description": "Restores your window layout — position, workspace, monitor — after Wayland scrambles it (e.g. after suspend). Includes regex-based window title matching, a separate default layout, and a configurable auto-save interval. Originally based on Save My Windows by lukastymo.",
-  "version": 6,
+  "description": "Save and restores your window layout — position, workspace, monitor. Includes regex-based window title matching, a separate default layout, and a configurable auto-save interval.",
+  "version": 1,
   "shell-version": [
     "45",
     "46",
     "47",
     "48",
-    "49"
+    "49",
+    "50"
   ],
   "url": "https://github.com/JuGuSm/save-my-windows",
   "license": "GPL-3.0-or-later"

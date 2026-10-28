@@ -48,6 +48,7 @@ Click the panel icon (top bar) to open the menu:
 | Restore Default Layout | Restore from the default layout instead of the regular one. |
 | Save Automatically (5m) | Toggle background auto-save every 5 minutes. |
 | Restore Automatically (after suspend) | Toggle auto-restore of the last layout right after resume. |
+| Edit Last Layout | Open the regular layout's JSON file in your system's text editor. |
 | Edit Default Layout | Open the default layout's JSON file in your system's text editor. |
 
 Layouts are stored as JSON under `~/.config/deja-vu/`:
